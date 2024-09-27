@@ -1,0 +1,90 @@
+// Table ExpenseTypes {
+//     id int [primary key]
+//     type varchar
+// }
+
+// Table Expenses {
+//     id int [primary key]
+//     expenseTypeId int [ref: > ExpenseTypes.id]
+//     amount int
+//     dueDate date
+//     isAutoDraft bool
+//     name varchar
+//     userId int [ref: > Users.id]
+// }
+
+// Table Budgets {
+//     id int [primary key]
+//     userId int [ref: > Users.id]
+//     budgetTypeId int [ref: > BudgetTypes.id]
+// }
+
+Table Users {
+    id int [primary key]
+    name varchar
+    username varchar
+    userTypeId int [ref: > UserTypes.id]
+}
+
+Table UserTypes {
+    id int [primary key]
+    type varchar
+}
+
+Table Income {
+    id int [primary key]
+    amount int
+    incomeTypeId int [ref: > IncomeTypes.id]
+    name varchar
+    isAutoDeposit bool
+    frequencyTypeId int [ref: > FrequencyTypes.id]
+    accountId int [ref: > Accounts.id]
+}
+
+Table IncomeTypes {
+    id int [primary key]
+    type varchar
+}
+
+Table Accounts {
+    id int [primary key]
+    accountTypeId int [ref: > AccountTypes.id]
+    name varchar
+    userId int [ref: > Users.id]
+}
+
+Table FrequencyTypes {
+    id int [primary key]
+    type varchar
+    days int
+}
+
+Table AccountTypes {
+    id int [primary key]
+    type varchar
+}
+
+// Table BudgetTypes {
+//     id int [primary key]
+//     type varchar
+// }
+
+// Table BudgetIncome {
+//     id int [primary key]
+//     budgetId int [ref: > Budgets.id]
+//     incomeId int [ref: > Income.id]
+// }
+
+// Table BudgetExpenses {
+//     id int [primary key]
+//     budgetId int [ref: > Budgets.id]
+//     expenseId int [ref: > Expenses.id]
+// }
+
+// Table BudgetAccounts {
+//     id int [primary key]
+//     budgetId int [ref: > Budgets.id]
+//     accountId int [ref: > Accounts.id]
+// }
+
+
